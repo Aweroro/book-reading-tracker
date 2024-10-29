@@ -15,19 +15,19 @@ const LandingPageBody = () => {
       <div className='flex justify-center'>
         <p className='lg:text-4xl text-[#424242] text-3xl'>Keep track of all the books you read and create a list of books you plan to read.</p>
       </div>
-      <div className='mt-10'>
+      <div className='mt-10 flex md:justify-center sm:justify-center lg:justify-normal'>
         <PrimaryButton
         title='Get Started'
         className='h-20 w-40 font-bold text-xl'
         onClick={() => alert('lol implement sign in')}/>
       </div>
      </div>
-     <div className='border-2 rounded-xl p-4 shadow lg:w-full lg:h-full md:h-full md:w-[500px] sm:w-[380px] sm:h-[400px]'>
+     <div className='border-2 rounded-xl p-4 shadow w-full h-full flex justify-center'>
         <Image
         src={PageImage}
         alt='Landing page image'
-        width={600}
-        height={500}
+        width={300}
+        height={400}
         />
       </div>
     </div>
