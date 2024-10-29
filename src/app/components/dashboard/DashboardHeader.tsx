@@ -2,7 +2,7 @@ import React from 'react'
 
 const DashboardHeader = () => {
     return (
-        <nav className='flex justify-between bg-[#6366F1] overflow-hidden p-8'>
+        <nav className='flex justify-between bg-[#6366F1] overflow-hidden p-8 py-4'>
           <header 
             className='text-4xl text-white font-bold cursor-pointer font-serif mx-4'>
             Booktroll 
