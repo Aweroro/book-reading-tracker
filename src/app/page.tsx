@@ -1,13 +1,15 @@
 import Header from './components/landing-page/header';
-//import Footer from './components/landing-page/footer';
+import Footer from './components/landing-page/footer';
 import LandingPageBody from './components/landing-page/body';
 
 export default function Home() {
   return (
-    <div>
-      <Header/>
-      <LandingPageBody/>
-      {/* <Footer/> */}
+    <div className='flex flex-col min-h-screen'>
+      <div className='flex-grow'>
+        <Header/>
+        <LandingPageBody/>
+      </div>
+        <Footer/>
     </div>
   );
 }
