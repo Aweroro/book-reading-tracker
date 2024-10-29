@@ -2,7 +2,7 @@
 import React from 'react'
 import Image from 'next/image';
 import PrimaryButton from '../../ui-components/Buttons/PrimaryButton';
-import PageImage from '/Users/Hardee/book-reading-tracker/public/analytic.png';
+import PageImage from '/Users/Hardee/book-reading-tracker/public/images/analytic.png';
 
 const LandingPageBody = () => {
   return (
