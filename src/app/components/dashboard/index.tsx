@@ -7,10 +7,12 @@ import EmptyStateAction from './EmptyStateAction';
 const DashboardComponent = () => {
   return (
     <div className='min-h-screen overflow-hidden'>
-      <DashboardHeader/>
-      <div className='flex'>
-      <SideBar/>   
-      <EmptyStateAction/>
+        <div className='fixed'>
+        <DashboardHeader/>
+         <SideBar/>
+        </div>
+      <div className='container'>
+        <EmptyStateAction/>
       </div>
     </div>
   )

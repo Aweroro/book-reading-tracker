@@ -5,7 +5,7 @@ import EmptyStateImage from '/Users/Hardee/book-reading-tracker/public/images/bo
 
 const EmptyStateAction = () => {
     return(
-        <div className="w-full h-ful flex justify-center items-center">
+        <div className="w-screen h-screen flex justify-center items-center">
             <div className="sm:max-w-[470px] w-full flex flex-col justify-center sm:w-[470px]">
                 <div className="w-full flex justify-center items-center mb-[30px]">
                     <Image
