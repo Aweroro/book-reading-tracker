@@ -1,9 +1,9 @@
-import React from 'react'
+import React from 'react';
 import DashboardHeader from '../page-compoents/DashboardHeader';
 import SideBar from '../page-compoents/SideBar';
 import EmptyStateAction from './EmptyStateAction';
 
-const DashboardComponent = () => {
+const BooksComponent = () => {
   return (
     <div className='min-h-screen overflow-hidden'>
     <DashboardHeader />
@@ -19,4 +19,4 @@ const DashboardComponent = () => {
   )
 }
 
-export default DashboardComponent;
+export default BooksComponent;
