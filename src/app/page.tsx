@@ -5,7 +5,7 @@ import LandingPageBody from './components/landing-page/body';
 export default function Home() {
   return (
     <div className='flex flex-col min-h-screen'>
-      <div className='flex-grow'>
+      <div className='flex-grow container justify-center items-center'>
         <Header/>
         <LandingPageBody/>
       </div>

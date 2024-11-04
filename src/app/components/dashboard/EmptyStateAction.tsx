@@ -1,4 +1,4 @@
-"use server"
+"use client"
 import React from 'react'
 import Image from 'next/image';
 import EmptyStateImage from '/Users/Hardee/book-reading-tracker/public/images/book4.png'
