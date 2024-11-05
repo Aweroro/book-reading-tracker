@@ -11,7 +11,7 @@ const DashboardComponent = () => {
       <div className='fixed'>
         <SideBar />
       </div>
-      <div className='container'> 
+      <div className='container ml-80'> 
         <EmptyStateAction />
       </div>
     </div>

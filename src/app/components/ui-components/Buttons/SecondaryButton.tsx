@@ -12,7 +12,7 @@ const SecondaryButton = ({title, onClick, className, icon} : IProps) => {
   return (
     <button 
     onClick={onClick}
-    className={`bg-white border-2 border-[#6366F1] text-[#6366F1] flex justify-center py-2 px-4 rounded-full hover:text-white hover:bg-[#6366F1] ${className}`}>
+    className={`bg-white border-2 border-[#00b0ff] text-[#00b0ff] flex justify-center py-2 px-4 rounded-full hover:text-white hover:bg-[#00b0ff] ${className}`}>
       {icon}
       {title}
     </button>

@@ -4,8 +4,7 @@ import PrimaryButton from '../ui-components/Buttons/PrimaryButton';
 import { 
     HomeIcon, 
     BookOpenIcon, 
-    ChartBarIcon, 
-    Cog6ToothIcon, 
+    ChartBarIcon,  
     ArrowRightStartOnRectangleIcon, 
     Bars4Icon 
 } from '@heroicons/react/24/outline';
@@ -54,19 +53,19 @@ const Sidebar = () => {
                 <nav className="flex-1 p-6 flex flex-col mt-6">
                     <ul className="space-y-4 text-xl font-medium">
                         <li>
-                            <a href="#" className="flex items-center p-2 text-black rounded-lg hover:bg-[#6366F1] hover:text-white transition">
+                            <a href="/dashboard" className="flex items-center p-2 text-black rounded-lg hover:bg-[#6366F1] hover:text-white transition">
                                 <HomeIcon className="mr-3 text-[#6366F1] size-8" />
                                 <span>Dashboard</span>
                             </a>
                         </li>
                         <li>
-                            <a href="#" className="flex items-center p-2 text-black rounded-lg hover:bg-[#6366F1] hover:text-white transition">
+                            <a href="/books" className="flex items-center p-2 text-black rounded-lg hover:bg-[#6366F1] hover:text-white transition">
                                 <BookOpenIcon className="mr-3 text-[#6366F1] size-8" />
                                 <span>Books</span>
                             </a>
                         </li>
                         <li>
-                            <a href="#" className="flex items-center p-2 text-black rounded-lg hover:bg-[#6366F1] hover:text-white transition">
+                            <a href="/progress" className="flex items-center p-2 text-black rounded-lg hover:bg-[#6366F1] hover:text-white transition">
                                 <ChartBarIcon className="mr-3 text-[#6366F1] size-8" />
                                 <span>Progress</span>
                             </a>
