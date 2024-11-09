@@ -8,10 +8,10 @@ const DashboardComponent = () => {
     <div className='min-h-screen overflow-hidden'>
     <DashboardHeader />
     <div className='flex pt-14'> 
-      <div className='fixed'>
+      <div className=''>
         <SideBar />
       </div>
-      <div className='container ml-80'> 
+      <div className='container'> 
         <EmptyStateAction />
       </div>
     </div>
@@ -20,3 +20,5 @@ const DashboardComponent = () => {
 }
 
 export default DashboardComponent;
+
+

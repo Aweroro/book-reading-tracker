@@ -5,7 +5,7 @@ import RecentActivityCard from './RecentActivityCard';
 
 const EmptyStateAction = () => {
     return(
-        <div className="flex flex-col justify-center gap-y-8 p-20">
+        <div className="flex flex-col items-center justify-center gap-y-8 p-20">
            <StatisticsCard/>
            <RecentActivityCard/>
         </div>
@@ -13,3 +13,4 @@ const EmptyStateAction = () => {
 }
 
 export default EmptyStateAction
+
