@@ -12,7 +12,7 @@ const PrimaryButton = ({title, onClick, className, icon} : IProps) => {
   return (
     <button 
     onClick={onClick}
-    className={`bg-[#6366F1] text-white flex justify-center py-2 px-4 rounded-xl ${className}`}>
+    className={`bg-[#6366F1] text-white flex justify-center py-2 px-4 rounded-xl hover:saturate-200 ${className}`}>
       {icon}
       {title}
     </button>
