@@ -20,7 +20,7 @@ const Sidebar = ({ onToggle }: SidebarProps) => {
     const currentPath = usePathname();
 
     const handleToggleSidebar = () => {
-        setIsSidebarVisible(prev => !prev);
+        setIsSidebarVisible((prev) => !prev);
         onToggle(!isSidebarVisible);
     };
 
@@ -36,14 +36,24 @@ const Sidebar = ({ onToggle }: SidebarProps) => {
         return () => window.removeEventListener("resize", handleResize);
     }, []);
 
-    const NavItem = ({ href, label, Icon }: { href: string; label: string; Icon: React.ComponentType<any> }) => {
+    const NavItem = ({
+        href,
+        label,
+        Icon,
+    }: {
+        href: string;
+        label: string;
+        Icon: React.ComponentType<any>;
+    }) => {
         const isActive = currentPath === href;
         return (
             <li>
                 <a
                     href={href}
                     className={`flex items-center p-2 rounded-lg transition ${
-                        isActive ? "bg-[#6366F1] text-white" : "text-[#6366F1] hover:bg-[#6366F1] hover:text-white"
+                        isActive
+                            ? "bg-[#6366F1] text-white"
+                            : "text-[#6366F1] hover:bg-[#6366F1] hover: hover:text-white"
                     }`}
                     aria-current={isActive ? "page" : undefined}
                 >
@@ -56,7 +66,11 @@ const Sidebar = ({ onToggle }: SidebarProps) => {
 
     return (
         <div className="relative">
-            <div className={`absolute left-0 px-4 text-[#6366F1] ${isSidebarVisible ? "bg-[#F3F4F6]" : "bg-white"}`}>
+            <div
+                className={`absolute left-0 px-4 text-[#6366F1] hover:bg-indigo-100 ${
+                    isSidebarVisible ? "bg-[#F3F4F6]" : "bg-white"
+                }`}
+            >
                 <Bars4Icon
                     className="size-8 cursor-pointer"
                     onClick={handleToggleSidebar}
@@ -69,7 +83,11 @@ const Sidebar = ({ onToggle }: SidebarProps) => {
                     isSidebarVisible ? "translate-x-0" : "-translate-x-full"
                 }`}
             >
-                <div className={`absolute left-[300px] text-[#6366F1] ${isSidebarVisible ? "bg-[#F3F4F6]" : "bg-white"}`}>
+                <div
+                    className={`absolute left-5 hover:bg-indigo-100 text-[#6366F1] ${
+                        isSidebarVisible ? "bg-[#F3F4F6]" : "bg-white"
+                    }`}
+                >
                     <Bars4Icon
                         className="size-8 cursor-pointer"
                         onClick={handleToggleSidebar}
@@ -107,5 +125,4 @@ const Sidebar = ({ onToggle }: SidebarProps) => {
 };
 
 export default Sidebar;
-
 
