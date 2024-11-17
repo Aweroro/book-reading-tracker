@@ -2,7 +2,7 @@
 import React from 'react'
 import { useRouter } from 'next/navigation';
 import PrimaryButton from '../../ui-components/Buttons/PrimaryButton';
-//Todo: Change app name
+
 const Header = () => {
     const router = useRouter();
 

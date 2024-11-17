@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import PrimaryButton from "../ui-components/Buttons/PrimaryButton";
 import { 
@@ -9,6 +9,10 @@ import {
     ArrowRightStartOnRectangleIcon,
     Bars4Icon 
 } from "@heroicons/react/24/outline";
+import { signOut } from "@firebase/auth";
+import { auth } from "@/app/config/firebase";
+import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
 
 interface SidebarProps {
     onToggle: (isVisible: boolean) => void;
@@ -18,6 +22,20 @@ const Sidebar = ({ onToggle }: SidebarProps) => {
     const [isSidebarVisible, setIsSidebarVisible] = useState(false);
     const [isSmallScreen, setIsSmallScreen] = useState(false);
     const currentPath = usePathname();
+
+    const router = useRouter();
+
+    const logOut = useCallback(async () => {
+        try {
+          await signOut(auth);
+          toast.success("Logged out successfully!")
+          router.push("/login");
+        } catch (err) {
+            const message = (err as { message?: string }).message ?? "Error during Google sign-in.";
+            // setError(message);
+            toast.error(message);
+        }
+      }, []);
 
     const handleToggleSidebar = () => {
         setIsSidebarVisible((prev) => !prev);
@@ -46,6 +64,7 @@ const Sidebar = ({ onToggle }: SidebarProps) => {
         Icon: React.ComponentType<any>;
     }) => {
         const isActive = currentPath === href;
+
         return (
             <li>
                 <a
@@ -107,7 +126,7 @@ const Sidebar = ({ onToggle }: SidebarProps) => {
                             title="Log Out"
                             className="w-full flex gap-x-4 align-middle items-center text-xl hover:opacity-95"
                             icon={<ArrowRightStartOnRectangleIcon className="size-8" />}
-                            onClick={() => alert("Dey play")}
+                            onClick={logOut}
                         />
                     </div>
                 </nav>
