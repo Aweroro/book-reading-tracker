@@ -35,7 +35,9 @@ const DashboardPage = () => {
     );
   }
 
-  return <DashboardComponent />;
+  return <div className="">
+    <DashboardComponent />;
+  </div>
 };
 
 export default DashboardPage;

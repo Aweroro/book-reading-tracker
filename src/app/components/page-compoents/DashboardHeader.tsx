@@ -8,9 +8,6 @@ const DashboardHeader = () => {
             className='text-2xl text-[#6366F1] font-bold cursor-pointer font-serif mx-4'>
                Booktroll 
             </header>
-            <div className='border rounded-full font-bold bg-gray-300 text-[#6366F1] p-2 cursor-pointer mx-6'>
-                AH
-             </div>
        </nav>
       )
     
