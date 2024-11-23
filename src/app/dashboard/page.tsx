@@ -3,33 +3,41 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import DashboardComponent from "@/app/components/dashboard";
 import { auth } from "@/app/config/firebase";
-import { Spinner } from "@material-tailwind/react";
+import { onAuthStateChanged } from "@firebase/auth";
+//import { Spinner } from "@material-tailwind/react";
 
 const DashboardPage = () => {
   const [loading, setLoading] = useState(true);
   const router = useRouter();
 
+  console.log(auth.currentUser?.email);
+
   useEffect(() => {
-    const user = auth.currentUser;
-    if (!user) {
-      router.push("/login");
-    } else {
-        setLoading(false)
-    }
+    // Listen for auth state changes
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (!user) {
+        router.push("/login");
+      } else {
+        setLoading(false);
+      }
+    });
+
+    // Cleanup listener on unmount
+    return () => unsubscribe();
   }, [router]);
 
   if (loading) {
     return (
-        <div>
-            <Spinner 
-            color="purple"
-            onPointerEnterCapture={undefined} 
-            onPointerLeaveCapture={undefined}/>
-        </div>
-    )
+      <div className="flex items-center justify-center h-screen">
+        {/* <Spinner color="purple" onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} /> */}
+        Loading...
+      </div>
+    );
   }
 
   return <DashboardComponent />;
 };
 
 export default DashboardPage;
+
+

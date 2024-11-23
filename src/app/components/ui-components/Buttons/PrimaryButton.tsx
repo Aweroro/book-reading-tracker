@@ -14,7 +14,7 @@ const PrimaryButton = ({title, onClick, className, type, icon, disabled} : IProp
   return (
     <button 
     onClick={onClick}
-    className={`bg-[#6366F1] text-white flex justify-center py-2 px-4 rounded-xl hover:saturate-200 ${className}`}>
+    className={`bg-indigo-600 text-white flex justify-center py-2 px-4 rounded-xl hover:saturate-200 ${className}`}>
       {icon}
       {title}
       {type}
