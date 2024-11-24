@@ -4,11 +4,13 @@ import AuthHeader from "@/app/components/page-compoents/AuthHeader";
 import GoogleIcon from "@/app/components/ui-components/icons/GoogleIcon";
 import PrimaryButton from "@/app/components/ui-components/buttons/PrimaryButton";
 import { useRouter } from "next/navigation";
-import { createUserWithEmailAndPassword, signInWithPopup } from "@firebase/auth";
+import { createUserWithEmailAndPassword, signInWithPopup, updateProfile } from "@firebase/auth";
 import { auth, googleProvider } from "@/app/config/firebase";
 import { toast } from "react-toastify";
 
 const SignUpPage: React.FC = () => {
+  const [firstName, setFirstName] = useState<string>("");
+  const [lastName, setLastName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
@@ -20,7 +22,14 @@ const SignUpPage: React.FC = () => {
     setError(null);
     setLoading(true);
     try {
-      await createUserWithEmailAndPassword(auth, email, password);
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
+
+      // Update user profile with first and last name
+      await updateProfile(user, {
+        displayName: `${firstName} ${lastName}`,
+      });
+
       toast.success("Signed up successfully!");
       router.push("/dashboard"); 
     } catch (err) {
@@ -30,7 +39,7 @@ const SignUpPage: React.FC = () => {
     } finally {
       setLoading(false);
     }
-  }, [email, password, router]);
+  }, [email, password, firstName, lastName, router]);
 
   const signInWithGoogle = useCallback(async () => {
     setError(null);
@@ -60,13 +69,33 @@ const SignUpPage: React.FC = () => {
             <GoogleIcon className="size-5 lg:size-7" />
             Continue with Google
           </button>
+          <h1>OR</h1>
+          <h1>Sign up with Email</h1>
           <form
             className="flex flex-col justify-start mt-6 space-y-4"
             onSubmit={(e) => {
               e.preventDefault();
               signUp();
             }}
-          >
+          >  
+           <div className="space-x-2">
+            <input
+                type="text"
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}
+                className="border rounded-md shadow pl-2 py-3 hover:ring-2 hover:ring-[#6366F1] focus:outline-none focus:ring-2 focus:ring-[#6366F1] transition duration-150"
+                placeholder="Enter your first name..."
+                required
+              />
+              <input
+                type="text"
+                value={lastName}
+                onChange={(e) => setLastName(e.target.value)}
+                className="border rounded-md shadow pl-2 py-3 hover:ring-2 hover:ring-[#6366F1] focus:outline-none focus:ring-2 focus:ring-[#6366F1] transition duration-150"
+                placeholder="Enter your last name..."
+                required
+              />
+           </div>
             <input
               type="email"
               value={email}
