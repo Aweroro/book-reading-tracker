@@ -1,8 +1,9 @@
 "use client"
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import DashboardHeader from '../page-compoents/DashboardHeader';
-import EmptyStateAction from './EmptyStateAction';
+//import EmptyStateAction from './EmptyStateAction';
 import SideBar from '../page-compoents/SideBar';
+import MainBookBody from './MainBookBody';
 
 const BooksComponent = () => {
   const [isSidebarVisible, setIsSidebarVisible] = useState(false);
@@ -11,20 +12,33 @@ const BooksComponent = () => {
     setIsSidebarVisible(isVisible);
   };
 
+useEffect(() => {
+    const updateSidebarVisibility = () => {
+      const smallScreen = window.innerWidth < 1200;
+      setIsSidebarVisible(!smallScreen);
+    };
+
+    updateSidebarVisibility();
+
+    window.addEventListener('resize', updateSidebarVisibility);
+
+    return () => window.removeEventListener('resize', updateSidebarVisibility);
+  }, []);
+
   return (
     <div className='min-h-screen overflow-hidden'>
       <DashboardHeader />
 
       <div className="flex pt-14">
         <SideBar onToggle={handleToggleSidebar} />
-        {/* <div
+        <div
           className={`transition-all duration-300 ${
-            isSidebarVisible ? 'ml-[344px]' : 'ml-0'
+            isSidebarVisible ? 'lg:ml-[344px]' : 'lg:ml-0'
           } flex-1`}
         >
-          <EmptyStateAction />
-        </div> */}
-        <EmptyStateAction/>
+          <MainBookBody/>
+        </div>
+        {/* <EmptyStateAction /> */}
       </div>
     </div>
   );
