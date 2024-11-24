@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 import { createUserWithEmailAndPassword, signInWithPopup, updateProfile } from "@firebase/auth";
 import { auth, googleProvider } from "@/app/config/firebase";
 import { toast } from "react-toastify";
+import MaxWidthWrapper from "@/app/components/ui-components/wrapper/MaxWidthWrapper";
 
 const SignUpPage: React.FC = () => {
   const [firstName, setFirstName] = useState<string>("");
@@ -55,35 +56,35 @@ const SignUpPage: React.FC = () => {
   }, [router]);
 
   return (
-    <div className="flex flex-col container mx-auto max-w-xl">
+   <MaxWidthWrapper>
+     <div className="flex flex-col mx-auto">
       <AuthHeader />
-      <div className="relative mt-20 min-h-[80vh]">
-        <h1 className="text-xl md:text-3xl lg:text-4xl font-bold ml-24 lg:ml-2 mt-16 md:mt-24 lg:mt-28">
+      <div className="relative mt-0 md:min-h-[80vh]">
+        <h1 className="text-xl md:text-2xl lg:text-3xl font-bold ml-8 md:ml-20 lg:ml-48 mt-16 md:mt-24 lg:mt-36">
           Sign up
         </h1>
-        <div className="flex flex-col items-center mt-10 max-w-xl">
-          <button
+        <div className="flex flex-col items-center mt-10">
+        <button
             onClick={signInWithGoogle}
-            className="flex items-center gap-x-2 lg:gap-x-4 font-bold text-base lg:text-2xl border px-28 lg:px-32 py-3 rounded-md shadow-sm hover:bg-gray-100"
+            className="flex items-center gap-x-2 text-nowrap md:text-md md:px-48 lg:gap-x-4 font-bold text-xs lg:text-2xl border px-14 lg:px-56 py-3 rounded-md shadow-sm hover:bg-gray-100"
           >
             <GoogleIcon className="size-5 lg:size-7" />
             Continue with Google
           </button>
-          <h1>OR</h1>
-          <h1>Sign up with Email</h1>
+          <h1 className="text-xs mt-2">OR</h1>
           <form
-            className="flex flex-col justify-start mt-6 space-y-4"
+            className="flex flex-col justify-start mt-4 space-y-4"
             onSubmit={(e) => {
               e.preventDefault();
               signUp();
             }}
           >  
-           <div className="space-x-2">
+           <div className="space-y-4 md:space-y-0 md:space-x-2 w-full items-center flex flex-col md:flex-row">
             <input
                 type="text"
                 value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
-                className="border rounded-md shadow pl-2 py-3 hover:ring-2 hover:ring-[#6366F1] focus:outline-none focus:ring-2 focus:ring-[#6366F1] transition duration-150"
+                className="border rounded-md shadow pl-2 px-28 py-3 hover:ring-2 hover:ring-[#6366F1] focus:outline-none focus:ring-2 focus:ring-[#6366F1] transition duration-150 placeholder:text-xs text-xs lg:text-xl lg:placeholder:text-lg"
                 placeholder="Enter your first name..."
                 required
               />
@@ -91,7 +92,7 @@ const SignUpPage: React.FC = () => {
                 type="text"
                 value={lastName}
                 onChange={(e) => setLastName(e.target.value)}
-                className="border rounded-md shadow pl-2 py-3 hover:ring-2 hover:ring-[#6366F1] focus:outline-none focus:ring-2 focus:ring-[#6366F1] transition duration-150"
+                className="border rounded-md shadow pl-2 px-28 py-3 hover:ring-2 hover:ring-[#6366F1] focus:outline-none focus:ring-2 focus:ring-[#6366F1] transition duration-150 placeholder:text-xs text-xs lg:text-xl lg:placeholder:text-lg"
                 placeholder="Enter your last name..."
                 required
               />
@@ -100,7 +101,7 @@ const SignUpPage: React.FC = () => {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="border w-[420px] lg:w-[550px] rounded-md shadow pl-2 py-3 hover:ring-2 hover:ring-[#6366F1] focus:outline-none focus:ring-2 focus:ring-[#6366F1] transition duration-150"
+              className="border lg:w-[739px] rounded-md shadow pl-2 px-28 py-3 hover:ring-2 hover:ring-[#6366F1] focus:outline-none focus:ring-2 focus:ring-[#6366F1] transition duration-150 placeholder:text-xs text-xs lg:text-xl lg:placeholder:text-lg"
               placeholder="Enter your email..."
               required
             />
@@ -108,18 +109,18 @@ const SignUpPage: React.FC = () => {
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="border w-[420px] lg:w-[550px] px-2 rounded-md shadow pl-2 py-3 hover:ring-2 hover:ring-[#6366F1] focus:outline-none focus:ring-2 focus:ring-[#6366F1] transition duration-150"
+              className="border lg:w-[739px] rounded-md shadow pl-2 px-28 py-3 hover:ring-2 hover:ring-[#6366F1] focus:outline-none focus:ring-2 focus:ring-[#6366F1] transition duration-150 placeholder:text-xs text-xs lg:text-xl lg:placeholder:text-lg"
               placeholder="Enter your password..."
               required
             />
             <PrimaryButton
-              disabled={loading}
-              className="text-base lg:text-2xl"
-              title={loading ? "Signing up..." : "Sign up with Email"}
-            />
+                disabled={loading}
+                className="text-sm md:text-lg lg:text-2xl"
+                title={loading ? "Signing up..." : "Sign up with Email"}
+              />
           </form>
-          {error && <p className="mt-4 text-sm text-red-500">{error}</p>}
-          <div className="flex space-x-2 text-sm lg:text-lg font-light mt-10 text-gray-700">
+          {error && <p className="mt-10 text-sm text-red-500">{error}</p>}
+          <div className="flex space-x-2 text-xs lg:text-lg font-light mt-4 text-gray-700">
             <p>Already have an account?</p>
             <button onClick={() => router.push("/login")} className="underline">
               Log in
@@ -128,6 +129,7 @@ const SignUpPage: React.FC = () => {
         </div>
       </div>
     </div>
+   </MaxWidthWrapper>
   );
 };
 
