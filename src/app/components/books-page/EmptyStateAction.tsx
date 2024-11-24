@@ -2,7 +2,7 @@
 import React from 'react'
 import Image from 'next/image';
 import EmptyStateImage from '/Users/Hardee/book-reading-tracker/public/images/book4.png'
-import PrimaryButton from '../ui-components/Buttons/PrimaryButton';
+import PrimaryButton from '../ui-components/buttons/PrimaryButton';
 import { PlusIcon } from '@heroicons/react/24/outline';
 
 const EmptyStateAction = () => {

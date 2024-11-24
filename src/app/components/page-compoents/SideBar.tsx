@@ -13,7 +13,7 @@ import {
 import { signOut } from "@firebase/auth";
 import { auth } from "@/app/config/firebase";
 import { toast } from "react-toastify";
-import PrimaryButton from "../ui-components/Buttons/PrimaryButton";
+import PrimaryButton from "../ui-components/buttons/PrimaryButton";
 
 interface SidebarProps {
   onToggle?: (isVisible: boolean) => void;

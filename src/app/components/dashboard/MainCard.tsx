@@ -1,5 +1,5 @@
 import React from 'react';
-import SecondaryButton from '../ui-components/Buttons/SecondaryButton';
+import SecondaryButton from '../ui-components/buttons/SecondaryButton';
 
 const MainDashboardCard = () => {
   return (
@@ -7,8 +7,9 @@ const MainDashboardCard = () => {
          <div className='flex flex-col space-y-4 p-12'>
              <h1 className='text-2xl font-semibold flex justify-center'> Hello, Hadi!</h1>
              <p className='text-xl font-medium flex justify-center'> Start your journey into becoming an efficient reader</p>
+             <p className='text-xl font-medium flex justify-center'> Click the button below to add a new book</p>
          </div>
-         <div className='flex justify-center mt-8'>
+         <div className='flex justify-center'>
             <SecondaryButton
             className=''
             title='Get Started'/>

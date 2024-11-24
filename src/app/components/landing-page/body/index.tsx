@@ -1,7 +1,7 @@
 "use client"
 import React from 'react'
 import Image from 'next/image';
-import PrimaryButton from '../../ui-components/Buttons/PrimaryButton';
+import PrimaryButton from '../../ui-components/buttons/PrimaryButton';
 import PageImage from '/Users/Hardee/book-reading-tracker/public/images/analytic.png';
 
 const LandingPageBody = () => {

@@ -1,7 +1,7 @@
 "use client";
 import React from 'react'
 import { useRouter } from 'next/navigation';
-import PrimaryButton from '../../ui-components/Buttons/PrimaryButton';
+import PrimaryButton from '../../ui-components/buttons/PrimaryButton';
 
 const Header = () => {
     const router = useRouter();

@@ -2,7 +2,7 @@
 import React, { useState, useCallback } from "react";
 import AuthHeader from "@/app/components/page-compoents/AuthHeader";
 import GoogleIcon from "@/app/components/ui-components/icons/GoogleIcon";
-import PrimaryButton from "@/app/components/ui-components/Buttons/PrimaryButton";
+import PrimaryButton from "@/app/components/ui-components/buttons/PrimaryButton";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";

@@ -1,5 +1,4 @@
 import React from 'react';
-//import { ArrowRightCircleIcon } from '@heroicons/react/24/outline';
 
 interface StatisticCardProps{
   title: string;
@@ -7,7 +6,7 @@ interface StatisticCardProps{
   className?: string;
 }
 
-const EmptyStatisticCard = (
+const StatisticCard = (
   {title, description, className} : StatisticCardProps
 ) => {
   return (
@@ -17,7 +16,6 @@ const EmptyStatisticCard = (
             {title}
             <p className='text-blue-500'>0</p>
           </h1>
-          {/* <ArrowRightCircleIcon className='w-6 h-6'/> */}
         </div>
          <div className='flex justify-center items-center p-20'>
              <h1 className='text-xl font-medium'>{description}</h1>
@@ -26,4 +24,4 @@ const EmptyStatisticCard = (
   )
 }
 
-export default EmptyStatisticCard;
+export default StatisticCard;
