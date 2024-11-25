@@ -11,8 +11,7 @@ const DashboardHeader = () => {
             </header>
        </nav>
       </MaxWidthWrapper>
-      )
-    
+      ) 
 }
 
 export default DashboardHeader;
