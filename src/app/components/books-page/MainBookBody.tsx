@@ -1,7 +1,6 @@
 import React from 'react';
 import MaxWidthWrapper from '../ui-components/wrapper/MaxWidthWrapper';
-import PrimaryButton from '../ui-components/buttons/PrimaryButton';
-import { PlusIcon } from '@heroicons/react/24/outline';
+import AddBookModal from '../ui-components/modal/AddBookModal';
 
 const MainBookBody = () => {
   // Sample data for rows, this can be updated dynamically
@@ -15,12 +14,7 @@ const MainBookBody = () => {
   return (
     <MaxWidthWrapper>
       <div className="flex justify-end mt-10 mr-4 md:mr-20">
-        <PrimaryButton
-          title="Add Book"
-          icon={<PlusIcon className="size-3 md:size-6" />}
-          className="flex items-center gap-x-2 px-4 text-xs md:text-base"
-          onClick={() => alert('Add book functionality')}
-        />
+        <AddBookModal buttonType='primary' />
       </div>
       <div className="mt-2 mx-4 md:mx-20">
         <table className="table-auto w-full border-collapse border border-gray-300">
