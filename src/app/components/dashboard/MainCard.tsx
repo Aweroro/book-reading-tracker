@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import SecondaryButton from '../ui-components/buttons/SecondaryButton';
 import { getAuth, onAuthStateChanged } from '@firebase/auth';
-import AddBookModal from '../ui-components/modal/AddBookModal';
+import Link from 'next/link';
 
 const MainDashboardCard = () => {
   const [userName, setUserName] = useState<string>('');
@@ -27,9 +27,11 @@ const MainDashboardCard = () => {
              <p className='text-md md:text-xl font-medium flex justify-center'> Start your journey into becoming an efficient reader</p>
              <p className='text-md md:text-xl font-medium flex justify-center'> Click the button below to add a new book</p>
          </div>
-         <div className='flex justify-center'>
-            <AddBookModal buttonType='secondary'/>
-         </div>
+         <Link href='/books' className='flex justify-center'>
+            <SecondaryButton
+            className=''
+            title='Get Started'/>
+         </Link>
     </div>
   )
 }
