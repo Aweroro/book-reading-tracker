@@ -1,6 +1,7 @@
 import React from 'react';
 import MaxWidthWrapper from '../ui-components/wrapper/MaxWidthWrapper';
 import AddBookModal from '../ui-components/modal/AddBookModal';
+import {PlusCircleIcon} from '@heroicons/react/24/outline';
 
 const MainBookBody = () => {
   // Sample data for rows, this can be updated dynamically
@@ -14,7 +15,7 @@ const MainBookBody = () => {
   return (
     <MaxWidthWrapper>
       <div className="flex justify-end mt-10 mr-4 md:mr-20">
-        <AddBookModal buttonType='primary' />
+        <AddBookModal/>
       </div>
       <div className="mt-2 mx-4 md:mx-20">
         <table className="table-auto w-full border-collapse border border-gray-300">
@@ -27,10 +28,10 @@ const MainBookBody = () => {
           </thead>
           <tbody>
             {rows.map((row) => (
-              <tr key={row.id} className='text-xs md:text-base items-center'>
-                <td className="border border-gray-300 px-4 py-4">{row.pending}</td>
-                <td className="border border-gray-300 px-4 py-4">{row.active}</td>
-                <td className="border border-gray-300 px-4 py-4">{row.completed}</td>
+              <tr key={row.id} className='text-xs md:text-base items-center cursor-pointer'>
+                <td className="border border-gray-300 px-4 py-4 hover:bg-gray-100">{row.pending}</td>
+                <td className="border border-gray-300 px-4 py-4 hover:bg-gray-100">{row.active}</td>
+                <td className="border border-gray-300 px-4 py-4 hover:bg-gray-100">{row.completed}</td>
               </tr>
             ))}
           </tbody>

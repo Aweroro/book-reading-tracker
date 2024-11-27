@@ -6,10 +6,6 @@ import PrimaryButton from '../buttons/PrimaryButton';
 import SecondaryButton from '../buttons/SecondaryButton';
 import { PlusIcon } from '@heroicons/react/24/outline';
 
-interface IProps {
-    buttonType: 'primary' | 'secondary';
-}
-
 interface BookDataProps {
     name: string;
     description: string;
@@ -18,7 +14,7 @@ interface BookDataProps {
 
   const STATUS_OPTIONS = ['Pending', 'Active', 'Completed'] as const;
 
-const AddBookModal = ({name, description, status, buttonType}: BookDataProps & IProps) => {
+const AddBookModal = ({name, description, status}: BookDataProps) => {
   const [showDescription, setShowDescription] = React.useState(false);
   const [bookData, setBookData] = React.useState<BookDataProps>({
     name: '',
@@ -52,19 +48,12 @@ const AddBookModal = ({name, description, status, buttonType}: BookDataProps & I
   return (
     <Dialog.Root>
       <Dialog.Trigger asChild>
-      <button>
-          {buttonType === 'primary' ? (
+        <button>
             <PrimaryButton
               title="Add Book"
               icon={<PlusIcon className="size-3 md:size-6" />}
               className="flex items-center gap-x-2 px-4 text-xs md:text-base"
             />
-          ) : (
-            <SecondaryButton
-              title="Get Started"
-              className="flex items-center gap-x-2 px-4 text-xs md:text-base"
-            />
-          )}
         </button>
       </Dialog.Trigger>
 

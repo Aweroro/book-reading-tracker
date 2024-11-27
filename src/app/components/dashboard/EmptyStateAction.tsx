@@ -9,7 +9,7 @@ const EmptyStateAction = () => {
     return (
         <MaxWidthWrapper>
             <div className="items-center p-5 md:p-20 space-y-10 ">
-                <MainDashboardCard />
+                <MainDashboardCard/>
             <div className="border rounded-xl shadow-md hover:shadow-xl">
             <div className="flex justify-between items-center p-3 mx-3">
                 <h3 className="font-medium text-xl">View Books</h3>
