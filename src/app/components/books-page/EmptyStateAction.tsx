@@ -1,12 +1,14 @@
 "use client"
-import React from 'react'
+import React, { useEffect } from 'react'
 import Image from 'next/image';
 import EmptyStateImage from '/Users/Hardee/book-reading-tracker/public/images/book4.png'
 import PrimaryButton from '../ui-components/buttons/PrimaryButton';
 import { PlusIcon } from '@heroicons/react/24/outline';
 import MaxWidthWrapper from '../ui-components/wrapper/MaxWidthWrapper';
+import AddBookModal from '../ui-components/modal/AddBookModal';
 
-const EmptyStateAction = () => {
+const EmptyStateAction = ({fetchBooks}: {fetchBooks: () => void}) => {
+  
     return(
        <MaxWidthWrapper>
          <div className="flex h-screen justify-center items-center">
@@ -25,12 +27,7 @@ const EmptyStateAction = () => {
                     <div className="font-[500] text-[12px] md:text-[18px] leading-[22.68px] text-[#292d32]">Click the button below to add one</div>
                 </div>
                 <div className='flex justify-center mt-6'>
-                    <PrimaryButton
-                    title='Add book'
-                    icon={<PlusIcon className='size-3 md:size-6'/>}
-                    className='flex items-center gap-x-2 px-4 text-xs md:text-base'
-                    onClick={() => alert('sure bro')}
-                    />
+                    <AddBookModal fetchBooks={async () => await fetchBooks()} />
                 </div>
             </div>
         </div>

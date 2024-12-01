@@ -5,7 +5,7 @@ import {Switch} from '@radix-ui/react-switch';
 import PrimaryButton from '../buttons/PrimaryButton';
 import SecondaryButton from '../buttons/SecondaryButton';
 import { PlusIcon } from '@heroicons/react/24/outline';
-import {db} from '@/app/config/firebase';
+import {db, auth} from '@/app/config/firebase';
 import {collection, addDoc} from 'firebase/firestore';
 import { toast } from 'react-toastify';
 
@@ -13,13 +13,14 @@ interface Book {
     title: string;
     description: string;
     status: 'Pending' | 'Active' | 'Completed' ;
+    userId: string;
   }
 
 const STATUS_OPTIONS = ['Pending', 'Active', 'Completed'] as const;
 
 const AddBookModal = ({fetchBooks}:  {fetchBooks: () => Promise<void>}) => {
   const [showDescription, setShowDescription] = React.useState(false);
-  const [bookData, setBookData] = React.useState<Book>({
+  const [bookData, setBookData] = React.useState<Omit<Book, 'userId'>>({
     title: '',
     description: '',
     status: 'Pending',
@@ -40,8 +41,18 @@ const AddBookModal = ({fetchBooks}:  {fetchBooks: () => Promise<void>}) => {
 
   const handleSubmit = async(e: React.FormEvent) => {
     e.preventDefault();
+
+    const userId = auth.currentUser?.uid;
+    if (!userId) {
+      // This is a safety fallback in case user authentication fails unexpectedly.
+      console.error('No authenticated user found.');
+      return;
+    }
+
+    console.log('User ID:', userId);
+
     try {
-      await addDoc(booksCollectionRef, bookData);
+      await addDoc(booksCollectionRef, {...bookData, userId});
       toast.success('Book Added Successfully');
       setBookData({
         title: '',
