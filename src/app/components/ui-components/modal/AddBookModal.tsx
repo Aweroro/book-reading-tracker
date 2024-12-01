@@ -5,38 +5,55 @@ import {Switch} from '@radix-ui/react-switch';
 import PrimaryButton from '../buttons/PrimaryButton';
 import SecondaryButton from '../buttons/SecondaryButton';
 import { PlusIcon } from '@heroicons/react/24/outline';
+import {db} from '@/app/config/firebase';
+import {collection, addDoc} from 'firebase/firestore';
+import { toast } from 'react-toastify';
 
-interface BookDataProps {
-    name: string;
+interface Book {
+    title: string;
     description: string;
     status: 'Pending' | 'Active' | 'Completed' ;
   }
 
-  const STATUS_OPTIONS = ['Pending', 'Active', 'Completed'] as const;
+const STATUS_OPTIONS = ['Pending', 'Active', 'Completed'] as const;
 
-const AddBookModal = ({name, description, status}: BookDataProps) => {
+const AddBookModal = ({fetchBooks}:  {fetchBooks: () => Promise<void>}) => {
   const [showDescription, setShowDescription] = React.useState(false);
-  const [bookData, setBookData] = React.useState<BookDataProps>({
-    name: '',
+  const [bookData, setBookData] = React.useState<Book>({
+    title: '',
     description: '',
     status: 'Pending',
   });
 
+  const [isOpen, setIsOpen] = React.useState(false);
+
+  const booksCollectionRef = collection(db, 'books');
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setBookData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleStatusChange = (value: BookDataProps['status']) => {
+  const handleStatusChange = (value: Book['status']) => {
     setBookData((prev) => ({ ...prev, status: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async(e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Book Data Submitted:', bookData);
-    setBookData({ name: '', description: '', status: 'Pending' });
-    setShowDescription(false);
+    try {
+      await addDoc(booksCollectionRef, bookData);
+      toast.success('Book Added Successfully');
+      setBookData({
+        title: '',
+        description: '',
+        status: 'Pending',
+      });
+      await fetchBooks();
+      setShowDescription(false);
+      setIsOpen(false);
+    } catch (error) {
+      toast.error('Unable to add Book');
+    }
   };
 
   const statusStyles = {
@@ -46,7 +63,7 @@ const AddBookModal = ({name, description, status}: BookDataProps) => {
   }
 
   return (
-    <Dialog.Root>
+    <Dialog.Root open={isOpen} onOpenChange={setIsOpen}>
       <Dialog.Trigger asChild>
         <button>
             <PrimaryButton
@@ -69,9 +86,9 @@ const AddBookModal = ({name, description, status}: BookDataProps) => {
               </label>
               <input
                 type="text"
-                name="name"
-                id="name"
-                value={bookData.name}
+                name="title"
+                id="title"
+                value={bookData.title}
                 onChange={handleInputChange}
                 required
                 className="w-full p-2 mt-1 border rounded hover:ring-2 hover:ring-[#6366F1] focus:outline-none focus:ring-2 focus:ring-[#6366F1] transition duration-150 text-xs md:text-xl"
@@ -141,13 +158,15 @@ const AddBookModal = ({name, description, status}: BookDataProps) => {
               <Dialog.Close asChild>
                 <SecondaryButton
                   title="Cancel"
-                  className="px-4 py-2 rounded"
+                  className="!rounded"
                 />
               </Dialog.Close>
+             <button type='submit'>
               <PrimaryButton
-                title="Save"
-                className="px-6 rounded"
-              />
+                  title="Save"
+                  className="!rounded"
+                />
+             </button>
             </div>
           </form>
         </Dialog.Content>
