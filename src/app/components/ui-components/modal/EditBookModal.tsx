@@ -66,7 +66,7 @@ const EditBookModal = ({
         <button
         title='Edit'
         >
-        <PencilSquareIcon className='w-5 h-5'/>
+        <PencilSquareIcon className='w-3 h-3 md:w-5 md:h-5'/>
         </button>
       </Dialog.Trigger>
 
@@ -152,11 +152,17 @@ const EditBookModal = ({
 
             <div className="flex justify-center md:justify-end w-full space-x-2 items-center">
               <Dialog.Close asChild>
-                <SecondaryButton title="Cancel" className="!rounded" />
+                <SecondaryButton
+                  title="Cancel"
+                  className="!rounded py-0.5 md:py-1.5"
+                />
               </Dialog.Close>
-              <button type="submit">
-                <PrimaryButton title="Save Changes" className="!rounded" />
-              </button>
+             <button type='submit'>
+              <PrimaryButton
+                  title="Save Changes"
+                  className="!rounded py-1 text-xs md:text-lg !px-10 md:py-2"
+                />
+             </button>
             </div>
           </form>
         </Dialog.Content>

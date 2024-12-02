@@ -19,3 +19,8 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+table td p {
+  word-wrap: break-word; 
+  overflow-wrap: break-word; 
+}

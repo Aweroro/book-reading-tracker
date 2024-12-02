@@ -169,13 +169,13 @@ const AddBookModal = ({fetchBooks}:  {fetchBooks: () => Promise<void>}) => {
               <Dialog.Close asChild>
                 <SecondaryButton
                   title="Cancel"
-                  className="!rounded"
+                  className="!rounded py-0.5 md:py-1.5"
                 />
               </Dialog.Close>
              <button type='submit'>
               <PrimaryButton
                   title="Save"
-                  className="!rounded"
+                  className="!rounded py-1 !px-10 md:py-2"
                 />
              </button>
             </div>

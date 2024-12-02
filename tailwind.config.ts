@@ -13,6 +13,11 @@ const config: Config = {
         foreground: "var(--foreground)",
       },
     },
+    variants: {
+      extend: {
+        whitespace: ['responsive'],
+      },
+    },
   },
   plugins: [],
 };
