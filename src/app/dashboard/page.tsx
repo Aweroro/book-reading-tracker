@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import DashboardComponent from "@/app/components/dashboard";
 import { auth } from "@/app/config/firebase";
 import { onAuthStateChanged } from "@firebase/auth";
-//import { Spinner } from "@material-tailwind/react";
+import Spinner from "../components/ui-components/spinner/Spinner";
 
 const DashboardPage = () => {
   const [loading, setLoading] = useState(true);
@@ -28,16 +28,15 @@ const DashboardPage = () => {
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center h-screen">
-        {/* <Spinner color="purple" onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} /> */}
-        Loading...
-      </div>
+     <Spinner />
     );
   }
 
-  return <div className="">
-    <DashboardComponent />;
-  </div>
+  return (
+   <div>
+    <DashboardComponent />
+   </div>
+  );
 };
 
 export default DashboardPage;

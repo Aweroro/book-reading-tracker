@@ -1,7 +1,7 @@
 "use client"
 import React, { useEffect, useState } from 'react';
 import DashboardHeader from '../page-compoents/DashboardHeader';
-import EmptyStateAction from './EmptyStateAction';
+import MainDashboardBody from './MainDashboardBody';
 import SideBar from '../page-compoents/SideBar';
 
 const DashboardComponent = () => {
@@ -35,7 +35,7 @@ useEffect(() => {
             isSidebarVisible ? 'lg:ml-[344px]' : 'lg:ml-0'
           } flex-1`}
         >
-          <EmptyStateAction />
+          <MainDashboardBody />
         </div>
       </div>
     </div>
