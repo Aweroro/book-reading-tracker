@@ -18,7 +18,7 @@ interface Book {
 
 const MainBookBody = () => {
   const [bookList, setBookList] = useState<Book[]>([]);
-  const [loading, setLoading] = useState(true); // Loading state
+  const [loading, setLoading] = useState(true); 
 
   const booksCollectionRef = collection(db, 'books');
 
@@ -41,7 +41,6 @@ const MainBookBody = () => {
 
   // Delete a book
   const deleteBook = async (id: string) => {
-    if (confirm('Are you sure you want to remove this book?')) {
       try {
         const bookDoc = doc(db, 'books', id);
         await deleteDoc(bookDoc);
@@ -51,7 +50,6 @@ const MainBookBody = () => {
         toast.error('Failed to remove the book');
         console.error(error);
       }
-    }
   };
 
   useEffect(() => {
