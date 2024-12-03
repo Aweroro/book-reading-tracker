@@ -111,7 +111,7 @@ const Sidebar: React.FC<SidebarProps> = ({ onToggle }) => {
           <ul className="space-y-4 text-lg font-medium">
             <NavItem href="/dashboard" label="Dashboard" Icon={HomeIcon} />
             <NavItem href="/books" label="Books" Icon={BookOpenIcon} />
-            <NavItem href="/progress" label="Progress" Icon={ChartBarIcon} />
+            {/* <NavItem href="/progress" label="Progress" Icon={ChartBarIcon} /> */}
           </ul>
 
           <div className="p-4 border-t border-gray-300 mt-auto">
