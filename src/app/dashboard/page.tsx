@@ -11,6 +11,7 @@ const DashboardPage = () => {
   const router = useRouter();
 
   console.log(auth.currentUser?.email);
+  console.log(auth.currentUser?.uid);
 
   useEffect(() => {
     // Listen for auth state changes

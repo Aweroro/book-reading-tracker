@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import MaxWidthWrapper from '../ui-components/wrapper/MaxWidthWrapper';
 import AddBookModal from '../ui-components/modal/AddBookModal';
-import { db } from '@/app/config/firebase';
-import { collection, getDocs, deleteDoc, doc } from 'firebase/firestore';
+import { db, auth } from '@/app/config/firebase';
+import { query, where, getDocs, collection, deleteDoc, doc } from 'firebase/firestore';
 import { toast } from 'react-toastify';
 import { TrashIcon } from '@heroicons/react/24/outline';
 import EditBookModal from '../ui-components/modal/EditBookModal';
@@ -25,12 +25,23 @@ const MainBookBody = () => {
   // Fetch all books
   const fetchBooks = async () => {
     try {
-      setLoading(true); // Set loading to true before fetching
-      const data = await getDocs(booksCollectionRef);
+      setLoading(true);
+      const userId = auth.currentUser?.uid;
+
+      if (!userId) {
+        throw new Error('User is not authenticated');
+      }
+
+      const booksCollectionRef = collection(db, 'books');
+      const q = query(booksCollectionRef, where('userId', '==', userId));
+      const data = await getDocs(q);
+
       const filteredBooks: Book[] = data.docs.map((doc) => ({
         ...(doc.data() as Omit<Book, 'id'>),
         id: doc.id,
       }));
+
+
       setBookList(filteredBooks);
     } catch (error) {
       console.error(error);

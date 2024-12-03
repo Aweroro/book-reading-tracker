@@ -4,9 +4,8 @@ import StatisticCard from "./StatisticsCard";
 import { ArrowRightCircleIcon } from '@heroicons/react/24/outline';
 import MaxWidthWrapper from "../ui-components/wrapper/MaxWidthWrapper";
 import Link from "next/link";
-import { db } from "@/app/config/firebase";
-import { collection } from "firebase/firestore";
-import { getDocs } from "firebase/firestore";
+import { auth, db } from "@/app/config/firebase";
+import { query, where, getDocs, collection } from "firebase/firestore";
 
 interface Book{
     id: string;
@@ -38,7 +37,15 @@ const MainDashboardBody = () => {
     const fetchBookCount = async () => {
         try{
             const booksCollectionRef = collection(db, 'books');
-            const data = await getDocs(booksCollectionRef);
+            const userId = auth.currentUser?.uid;
+
+
+        if (!userId) {
+            throw new Error("User is not authenticated.");
+        }
+
+            const q = query(booksCollectionRef, where('userId', '==', userId));
+            const data = await getDocs((q));
 
             const books: Book[] = data.docs.map((doc) => doc.data() as Book);
 
