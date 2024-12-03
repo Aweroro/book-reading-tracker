@@ -52,8 +52,8 @@ const LoginPage: React.FC = () => {
 
   return (
    <MaxWidthWrapper>
+    <AuthHeader />
      <div className="flex flex-col mx-auto">
-      <AuthHeader />
       <div className="relative mt-7 md:mt-2 md:min-h-[80vh]">
         <h1 className="text-xl md:text-2xl lg:text-3xl font-bold ml-8 md:ml-20 lg:ml-48 mt-16 md:mt-24 lg:mt-36">
           Log in
