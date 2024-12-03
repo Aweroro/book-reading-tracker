@@ -2,36 +2,41 @@
 import React from 'react'
 import Image from 'next/image';
 import PrimaryButton from '../../ui-components/buttons/PrimaryButton';
-import PageImage from '/Users/Hardee/book-reading-tracker/public/images/analytic.png';
+import Link from 'next/link';
+import MaxWidthWrapper from '../../ui-components/wrapper/MaxWidthWrapper';
 
 const LandingPageBody = () => {
   return (
-    <div className='w-full h-full lg:p-40 md:p-30 sm:p-20'>
-    <div className='grid lg:grid-cols-2 gap-y-12 grid-col-3 space-x-5'>
+    <MaxWidthWrapper>
+    <div className='w-full h-full p-4 md:p-10 mt-4 md:mt-0 lg:mt-20'>
+    <div className='grid lg:grid-cols-2 gap-y-6 md:space-x-5'>
     <div className='flex flex-col gap-y-3'>
      <div className='flex justify-center'>
-        <h1 className='lg:text-6xl font-bold text-5xl '>Track your knowledge gain and reading progress.</h1>
+        <h1 className='font-bold text-xl md:text-3xl lg:text-5xl '>Track your knowledge gain and reading progress.</h1>
       </div>
       <div className='flex justify-center'>
-        <p className='lg:text-4xl text-[#424242] text-3xl'>Keep track of all the books you read and create a list of books you plan to read.</p>
+        <p className='text-[#424242] text-lg md:text-xl lg:text-2xl'>Keep track of all the books you read and create a list of books you plan to read.</p>
       </div>
-      <div className='mt-10 flex md:justify-center sm:justify-center lg:justify-normal'>
+      <div className='mt-0 justify-center lg:mt-10 lg:justify-start flex'>
+        <Link href={'/signup'}>
         <PrimaryButton
         title='Get Started'
-        className='h-20 w-40 font-bold text-xl'
-        onClick={() => alert('lol implement sign in')}/>
+        className='font-bold text-xl'
+        />
+        </Link>
       </div>
      </div>
-     <div className='border-2 rounded-xl p-4 shadow w-full h-full flex justify-center'>
+     <div className='border rounded-xl w-full h-[200px] lg:h-[400px] lg:w-[700px] shadow flex justify-center'>
         <Image
-        src={PageImage}
+        src={'/images/landing-page.png'}
         alt='Landing page image'
-        width={300}
-        height={400}
+        width={700}
+        height={500}
         />
       </div>
     </div>
     </div>
+    </MaxWidthWrapper>
   )
 }
 
