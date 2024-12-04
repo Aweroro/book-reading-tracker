@@ -62,12 +62,10 @@ const EditBookModal = ({
 
   return (
     <Dialog.Root open={isOpen} onOpenChange={setIsOpen}>
-      <Dialog.Trigger asChild>
-        <button
+      <Dialog.Trigger> 
+        <PencilSquareIcon 
         title='Edit'
-        >
-        <PencilSquareIcon className='w-3 h-3 md:w-5 md:h-5'/>
-        </button>
+        className='w-3 h-3 md:w-5 md:h-5'/>
       </Dialog.Trigger>
 
       <Dialog.Portal>

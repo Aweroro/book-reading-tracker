@@ -12,14 +12,14 @@ interface IProps {
 
 const PrimaryButton = ({title, onClick, className, type, icon, disabled} : IProps) => {
   return (
-    <button 
+    <div 
     onClick={onClick}
-    className={`bg-indigo-600 text-white flex justify-center py-2 px-4 rounded-xl hover:saturate-200 ${className}`}>
+    className={`bg-indigo-600 cursor-pointer text-white flex justify-center py-2 px-4 rounded-xl hover:saturate-200 ${className}`}>
       {icon}
       {title}
       {type}
       {disabled}
-    </button>
+    </div>
   )
 }
 

@@ -75,14 +75,12 @@ const AddBookModal = ({fetchBooks}:  {fetchBooks: () => Promise<void>}) => {
 
   return (
     <Dialog.Root open={isOpen} onOpenChange={setIsOpen}>
-      <Dialog.Trigger asChild>
-        <button>
+      <Dialog.Trigger>     
             <PrimaryButton
               title="Add Book"
               icon={<PlusIcon className="size-3 md:size-6" />}
               className="flex items-center gap-x-2 px-4 text-xs md:text-base"
             />
-        </button>
       </Dialog.Trigger>
 
       <Dialog.Portal>
