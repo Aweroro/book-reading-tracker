@@ -10,7 +10,7 @@ const AuthHeader = () => {
          <Link href={'/'}>
             <button 
                className='text-xl md:text-2xl text-[#6366F1] font-bold cursor-pointer font-serif mx-4'>
-                  Booktroll 
+                  Codex 
             </button>
          </Link>
        </nav>

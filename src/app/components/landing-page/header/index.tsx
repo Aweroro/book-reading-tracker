@@ -12,7 +12,7 @@ const Header = () => {
      <Link href='/'>
       <header 
           className='text-xl md:text-3xl text-[#6366F1] font-bold cursor-pointer font-serif'>
-          Booktroll 
+          Codex 
         </header>
      </Link>
       <div className='flex space-x-2'>
