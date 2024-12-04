@@ -4,12 +4,14 @@ import { useRouter } from "next/navigation";
 import { auth } from "@/app/config/firebase";
 import { onAuthStateChanged } from "@firebase/auth";
 import BooksComponent from "../components/books-page";
+import Spinner from "../components/ui-components/spinner/Spinner";
 
 const BooksPage = () => {
   const [loading, setLoading] = useState(true);
   const router = useRouter();
 
   console.log(auth.currentUser?.email);
+  console.log(auth.currentUser?.uid);
 
   useEffect(() => {
     // Listen for auth state changes
@@ -26,9 +28,7 @@ const BooksPage = () => {
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center h-screen">
-        {/* <Spinner color="purple" onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} /> */}   
-      </div>
+     <Spinner/>
     );
   }
 
