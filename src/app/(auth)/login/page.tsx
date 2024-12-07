@@ -91,6 +91,7 @@ const LoginPage: React.FC = () => {
             />
             <PrimaryButton
               disabled={loading}
+              onClick={signIn}
               className="text-sm md:text-lg lg:text-2xl"
               title={loading ? "Logging in..." : "Log in with Email"}
             />

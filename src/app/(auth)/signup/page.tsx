@@ -114,6 +114,7 @@ const SignUpPage: React.FC = () => {
               required
             />
             <PrimaryButton
+                onClick={signUp}
                 disabled={loading}
                 className="text-sm md:text-lg lg:text-2xl"
                 title={loading ? "Signing up..." : "Sign up with Email"}
