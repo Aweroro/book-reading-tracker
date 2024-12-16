@@ -1,7 +1,7 @@
 "use client"
 import React from 'react'
 import Image from 'next/image';
-import EmptyStateImage from '/Users/Hardee/book-reading-tracker/public/images/book4.png'
+import EmptyStateImage from '../../../../public/images/book4.png';
 import MaxWidthWrapper from '../ui-components/wrapper/MaxWidthWrapper';
 import AddBookModal from '../ui-components/modal/AddBookModal';
 
