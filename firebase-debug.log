@@ -1,0 +1,59 @@
+[debug] [2024-12-18T20:36:44.774Z] ----------------------------------------------------------------------
+[debug] [2024-12-18T20:36:44.777Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Hardee\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2024-12-18T20:36:44.778Z] CLI Version:   13.23.0
+[debug] [2024-12-18T20:36:44.778Z] Platform:      win32
+[debug] [2024-12-18T20:36:44.778Z] Node Version:  v20.12.1
+[debug] [2024-12-18T20:36:44.778Z] Time:          Wed Dec 18 2024 21:36:44 GMT+0100 (West Africa Standard Time)
+[debug] [2024-12-18T20:36:44.778Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-12-18T20:36:44.782Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2024-12-18T20:36:44.941Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-12-18T20:36:44.942Z] > authorizing via signed-in user (hadistic20@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\Hardee\book-reading-tracker
+
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+
+[debug] [2024-12-18T20:36:48.391Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2024-12-18T20:36:48.392Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2024-12-18T20:40:35.194Z] Using project from CLI flag: book-reading-tracker-f73c2
+[debug] [2024-12-18T20:40:35.195Z] Checked if tokens are valid: false, expires at: 1731777775925
+[debug] [2024-12-18T20:40:35.196Z] Checked if tokens are valid: false, expires at: 1731777775925
+[debug] [2024-12-18T20:40:35.196Z] > refreshing access token with scopes: []
+[debug] [2024-12-18T20:40:35.198Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2024-12-18T20:40:35.199Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-12-18T20:40:41.485Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2024-12-18T20:40:41.486Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-12-18T20:40:41.498Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/book-reading-tracker-f73c2 [none]
+[debug] [2024-12-18T20:40:53.405Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/book-reading-tracker-f73c2 200
+[debug] [2024-12-18T20:40:53.405Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/book-reading-tracker-f73c2 {"projectId":"book-reading-tracker-f73c2","projectNumber":"600665945443","displayName":"book-reading-tracker","name":"projects/book-reading-tracker-f73c2","resources":{"hostingSite":"book-reading-tracker-f73c2"},"state":"ACTIVE","etag":"1_8c94570b-0e0a-44ee-94e7-ecb4cf627a30"}
+[info] i  Using project book-reading-tracker-f73c2 (book-reading-tracker) 
+[info] 
+=== Hosting Setup
+[debug] [2024-12-18T20:40:53.430Z] Checked if tokens are valid: true, expires at: 1734558040486
+[debug] [2024-12-18T20:40:53.432Z] Checked if tokens are valid: true, expires at: 1734558040486
+[debug] [2024-12-18T20:40:53.433Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/book-reading-tracker-f73c2 [none]
+[debug] [2024-12-18T20:40:54.595Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/book-reading-tracker-f73c2 200
+[debug] [2024-12-18T20:40:54.595Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/book-reading-tracker-f73c2 {"projectId":"book-reading-tracker-f73c2","projectNumber":"600665945443","displayName":"book-reading-tracker","name":"projects/book-reading-tracker-f73c2","resources":{"hostingSite":"book-reading-tracker-f73c2"},"state":"ACTIVE","etag":"1_8c94570b-0e0a-44ee-94e7-ecb4cf627a30"}
+[info] 
+[info] Your public directory is the folder (relative to your project directory) that
+[info] will contain Hosting assets to be uploaded with firebase deploy. If you
+[info] have a build process for your assets, use your build's output directory.
+[info] 
