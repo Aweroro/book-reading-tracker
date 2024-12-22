@@ -6,10 +6,17 @@
       "**/.*",
       "**/node_modules/**"
     ],
-    "rewrites": [
+    "rewrites": [],
+    "cleanUrls": true,  
+    "headers": [
       {
-        "source": "**",
-        "destination": "/index.html"
+        "source": "**/*.@(js|css|html|png|jpg|jpeg|gif|svg|ico|woff|woff2|ttf|otf|eot|mp4|webm|ogg|mp3|wav|flac|aac|m4a)",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=31536000, immutable"
+          }
+        ]
       }
     ]
   }
