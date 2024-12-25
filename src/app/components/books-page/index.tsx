@@ -1,7 +1,6 @@
 "use client"
 import React, { useEffect, useState } from 'react';
 import DashboardHeader from '../page-compoents/DashboardHeader';
-//import EmptyStateAction from './EmptyStateAction';
 import SideBar from '../page-compoents/SideBar';
 import MainBookBody from './MainBookBody';
 
@@ -38,7 +37,6 @@ useEffect(() => {
         >
           <MainBookBody/>
         </div>
-        {/* <EmptyStateAction /> */}
       </div>
     </div>
   );
